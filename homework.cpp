@@ -30,6 +30,31 @@ while (index < a)
  return true;
 }
 
+std::vector<int> primeList (int x)
+{
+    bool intPrime;
+    int newindex = 2;
+    std::vector<int> primeN = {}; 
+    if (x <=1)
+    {
+        std::cout << "this number cannot be used. pick a number greater than 1." << std::endl;
+    }
+    while (newindex < primeN.size())
+    {
+        if (x % newindex == 0)
+        {
+            std::cout << x << " is not prime!" << std::endl;
+        }
+        else
+        {
+            primeN.push_back(newindex);
+        }
+        newindex = newindex + 1;
+    }
+
+    return primeN;
+}
+
 int main()
 {
     // 1. 
@@ -48,5 +73,9 @@ int main()
         }
     }
     
+    //2. 
+    std::cout << primeList(13);
+
+
     return 0;
 }
