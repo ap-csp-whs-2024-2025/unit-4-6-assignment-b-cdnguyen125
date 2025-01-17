@@ -38,20 +38,23 @@ std::vector<int> primeList (int x)
     if (x <=1)
     {
         std::cout << "this number cannot be used. pick a number greater than 1." << std::endl;
+        return {0};
     }
-    while (newindex < primeN.size())
-    {
-        if (x % newindex == 0)
-        {
-            std::cout << x << " is not prime!" << std::endl;
-        }
-        else
-        {
-            primeN.push_back(newindex);
-        }
-        newindex = newindex + 1;
-    }
-
+    while (newindex <= x)
+     {
+           if (x % newindex == 0)
+          {
+              std::cout << x << " is not prime!" << std::endl;
+          }
+          
+          newindex = newindex + 1;
+     }
+     
+        // from here I'm lost
+     int listTracker = 2;
+     int ltIndex = 2;
+    
+     
     return primeN;
 }
 
@@ -72,9 +75,13 @@ int main()
             std::cout << prime1 << " returned false (" << prime1 << " is composite)" << std::endl; 
         }
     }
+    std::cout << std::endl;
     
     //2. 
-    std::cout << primeList(13);
+    int plN;
+    std::cout << "choose one number for the primeList procedure" << std::endl;
+    std::cin >> plN;
+    display(primeList(plN));
 
 
     return 0;
