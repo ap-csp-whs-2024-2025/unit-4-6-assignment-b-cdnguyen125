@@ -34,13 +34,13 @@ std::vector<int> primeList (int x)
 {
     bool intPrime;
     int newindex = 2;
-    std::vector<int> primeN = {}; 
+    std::vector<int> primeN = {2}; 
     if (x <=1)
     {
         std::cout << "this number cannot be used. pick a number greater than 1." << std::endl;
         return {0};
     }
-    while (newindex <= x)
+    while (newindex < x)
      {
            if (x % newindex == 0)
           {
@@ -51,8 +51,28 @@ std::vector<int> primeList (int x)
      }
      
         // from here I'm lost
-     int listTracker = 2;
-     int ltIndex = 2;
+     int listTracker = 2; // number being tested
+     int listIndex = 2; // what position in list
+    while (listTracker < x)
+    {
+     while (listIndex < listTracker)
+     {
+        if (listTracker % listIndex == 0)
+        {
+            listIndex = listTracker;
+        }
+        else
+        {
+          if (listTracker % listIndex == !0)
+        {
+            primeN.push_back(listTracker);
+        }
+        }
+        listIndex = listIndex + 1; // must get it to skip
+     }
+     listTracker = listTracker + 1;
+     listIndex = 2;
+    }
     
      
     return primeN;
